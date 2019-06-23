@@ -2,42 +2,11 @@
   .todo-list
     .content
       ul.list
-        li.item
-          .todo-item
-            label.label
-              .input-block
-                input(
-                  type='checkbox'
-                ).input
-              .title Todo Name
-            .button
-              button(
-                type='button'
-              ).remove x
-        li.item
-          .todo-item
-            label.label
-              .input-block
-                input(
-                  type='checkbox'
-                ).input
-              .title Todo Name
-            .button
-              button(
-                type='button'
-              ).remove x
-        li.item
-          .todo-item
-            label.label
-              .input-block
-                input(
-                  type='checkbox'
-                ).input
-              .title Todo Name
-            .button
-              button(
-                type='button'
-              ).remove x
+        li.item(v-for="todo in todos")
+          todo-list-item(
+            :todo="todo"
+          )
+          
     .footer
       .footer-content
         .counter 10 items left
@@ -48,9 +17,15 @@
 
 <script>
 import todoListFilter from "./todoListFilter";
+import todoListItem from "./todoListItem";
+
 export default {
+  props: {
+    todos: Array
+  },
   components: {
-    todoListFilter
+    todoListFilter,
+    todoListItem
   }
 };
 </script>
@@ -84,48 +59,6 @@ export default {
     overflow: hidden;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px rgba(0, 0, 0, 0.1);
   }
-}
-
-.todo-item {
-  display: flex;
-  align-items: center;
-  &:hover {
-    .remove {
-      visibility: visible;
-    }
-  }
-}
-
-.label {
-  display: flex;
-  align-items: center;
-  flex: 1;
-}
-
-.input-block {
-  width: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.title {
-  padding: 15px 0;
-  display: block;
-  line-height: 1.2;
-}
-
-.button {
-  width: 40px;
-}
-
-.remove {
-  background: transparent;
-  border: none;
-  color: firebrick;
-  cursor: pointer;
-  font-size: 20px;
-  visibility: hidden;
 }
 
 .footer-content {

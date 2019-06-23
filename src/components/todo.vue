@@ -1,10 +1,12 @@
 <template lang="pug">
   div.todo
-    pre {{todos}}
     todo-input(
       @addTodo='addTodo'
     )
-    todo-list
+    todo-list(
+      :todos="todos"
+    )
+    pre {{todos}}
 </template>
 
 <script>
