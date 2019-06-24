@@ -4,6 +4,7 @@
       @addTodo='addTodo'
     )
     todo-list(
+      v-if="todos.length > 0"
       :todos="todos"
     )
     pre {{todos}}

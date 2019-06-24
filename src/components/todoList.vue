@@ -4,12 +4,13 @@
       ul.list
         li.item(v-for="todo in todos")
           todo-list-item(
+            v-if="todos.length > 0"
             :todo="todo"
           )
           
     .footer
       .footer-content
-        .counter 10 items left
+        .counter {{todos.length}} items left
         .filter
           todo-list-filter
 
