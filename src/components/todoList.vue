@@ -13,7 +13,9 @@
       .footer-content
         .counter {{todos.length}} items left
         .filter
-          todo-list-filter
+          todo-list-filter(
+            @filterTodos="filterTodos"
+          )
 
 </template>
 
@@ -35,6 +37,9 @@ export default {
     },
     checkTodo(todo) {
       this.$emit("checkTodo", todo);
+    },
+    filterTodos(filter) {
+      this.$emit("filterTodos", filter);
     }
   }
 };
@@ -74,6 +79,7 @@ export default {
 .footer-content {
   display: flex;
   align-items: center;
+  position: relative;
 }
 .filter {
   flex: 1;
