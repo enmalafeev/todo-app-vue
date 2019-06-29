@@ -6,11 +6,12 @@
     todo-list(
       v-if="todos.length > 0"
       :todos="filteredTodos"
-      @removeTod§o="removeTodo"
+      @removeTodo="removeTodo"
       @checkTodo="checkTodo"
       @filterTodos="filterTodos"
     )
     pre {{todos}}
+    test
 </template>
 
 <script>

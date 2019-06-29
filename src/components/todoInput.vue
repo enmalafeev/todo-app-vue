@@ -34,6 +34,19 @@ export default {
 
 
 <style lang="scss" scoped>
+.todo-input {
+  position: relative;
+  &::before {
+    position: absolute;
+    top: 18px;
+    left: 24px;
+    content: "❯";
+    font-size: 24px;
+    color: #e6e6e6;
+    transform: rotate(90deg);
+  }
+}
+
 .input {
   font-size: 24px;
   padding: 16px 16px 16px 60px;
