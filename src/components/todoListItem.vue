@@ -11,6 +11,10 @@
     .button
       button(
         type='button'
+      ).view ->
+    .button
+      button(
+        type='button'
         @click="removeTodo"
       ).remove x
 </template>
@@ -30,13 +34,6 @@ export default {
         checked: e.target.checked
       };
       this.$emit("checkTodo", todoItem);
-    },
-    selectAllTodos() {
-      const todoItem = {
-        ...this.todo,
-        checked: true
-      };
-      this.$emit("checkTodo", todoItem);
     }
   }
 };
@@ -44,11 +41,18 @@ export default {
 
 
 <style lang="scss">
+.view {
+  visibility: hidden;
+  cursor: pointer;
+}
 .todo-item {
   display: flex;
   align-items: center;
   &:hover {
     .remove {
+      visibility: visible;
+    }
+    .view {
       visibility: visible;
     }
   }
