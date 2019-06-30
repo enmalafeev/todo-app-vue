@@ -30,6 +30,13 @@ export default {
         checked: e.target.checked
       };
       this.$emit("checkTodo", todoItem);
+    },
+    selectAllTodos() {
+      const todoItem = {
+        ...this.todo,
+        checked: true
+      };
+      this.$emit("checkTodo", todoItem);
     }
   }
 };

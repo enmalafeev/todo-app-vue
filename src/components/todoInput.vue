@@ -1,12 +1,13 @@
 <template lang="pug">
   .todo-input
-    input(
-      type='text'
-      placeholder='Todo Name'
-      autofocus
-      v-model="todo.name"
-      @keydown.enter='addTodo'
-    ).input
+    label.select-all
+      input(
+        type='text'
+        placeholder='Todo Name'
+        autofocus
+        v-model="todo.name"
+        @keydown.enter='addTodo'
+      ).input
 </template>
 
 <script>
@@ -34,11 +35,11 @@ export default {
 
 
 <style lang="scss" scoped>
-.todo-input {
+.select-all {
   position: relative;
   &::before {
     position: absolute;
-    top: 18px;
+    top: -8px;
     left: 24px;
     content: "❯";
     font-size: 24px;

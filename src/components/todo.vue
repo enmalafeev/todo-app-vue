@@ -11,7 +11,6 @@
       @filterTodos="filterTodos"
     )
     pre {{todos}}
-    test
 </template>
 
 <script>
