@@ -1,6 +1,9 @@
 <template lang="pug">
   .todo-input
-    label.select-all
+    label.select-all(
+      @click="selectAllTodos"
+      :class="{active: isActive}"
+      )
       input(
         type='text'
         placeholder='Todo Name'
@@ -19,7 +22,8 @@ export default {
         id: 0,
         name: "",
         checked: false
-      }
+      },
+      isActive: false
     };
   },
   methods: {
@@ -28,6 +32,10 @@ export default {
       this.todo.id = uniqId;
       this.$emit("addTodo", { ...this.todo });
       this.todo.name = "";
+    },
+    selectAllTodos() {
+      this.$emit("selectAllTodos", { ...this.todo });
+      this.isActive = true;
     }
   }
 };
@@ -43,8 +51,14 @@ export default {
     left: 24px;
     content: "❯";
     font-size: 24px;
-    color: #e6e6e6;
+    color: #000;
+    opacity: 0.2;
     transform: rotate(90deg);
+  }
+}
+.active {
+  &::before {
+    opacity: 1;
   }
 }
 

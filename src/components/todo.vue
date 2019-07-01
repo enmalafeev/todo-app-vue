@@ -2,6 +2,7 @@
   div.todo
     todo-input(
       @addTodo='addTodo'
+      @selectAllTodos='selectAllTodos'
     )
     todo-list(
       v-if="todos.length > 0"
@@ -48,6 +49,11 @@ export default {
     },
     filterTodos(filter) {
       this.filter = filter;
+    },
+    selectAllTodos() {
+      if (this.todos.length > 0) {
+        this.todos = this.todos.map(el => ({ ...el, checked: true }));
+      }
     }
   },
   components: {
