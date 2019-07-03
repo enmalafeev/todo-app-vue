@@ -1,5 +1,5 @@
 <template lang="pug">
-  .todo-item(:class="{checked: todo.checked}")
+  .todo-item()
     label.label
       .input-block
         input(
