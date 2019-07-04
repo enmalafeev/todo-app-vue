@@ -3,7 +3,7 @@
     div.error {{validation.firstError('todo.name')}}
     label.select-all(
       @click="selectAllTodos"
-      :class="{active: isActive}"
+      :class="{active: this.todo.checked}"
       )
       input(
         type='text'
@@ -32,8 +32,7 @@ export default {
         id: 0,
         name: "",
         checked: false
-      },
-      isActive: false
+      }
     };
   },
   methods: {
@@ -51,7 +50,6 @@ export default {
     },
     selectAllTodos() {
       this.$emit("selectAllTodos", { ...this.todo });
-      this.isActive = true;
     }
   }
 };
