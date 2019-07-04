@@ -11,9 +11,7 @@
       .footer-content
         .counter {{todos.length}} items left
         .filter
-          todo-list-filter(
-            @filterTodos="filterTodos"
-          )
+          todo-list-filter
 
 </template>
 
@@ -29,11 +27,7 @@ export default {
     todoListFilter,
     todoListItem
   },
-  methods: {
-    filterTodos(filter) {
-      this.$emit("filterTodos", filter);
-    }
-  }
+  methods: {}
 };
 </script>
 
