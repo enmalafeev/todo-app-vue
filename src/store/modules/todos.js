@@ -10,6 +10,9 @@ const todos = {
     removeTodo(state, todoId) {
       state.todos = state.todos.filter(item => item.id !== todoId);
     },
+    checkTodo(state, todo) {
+      state.todos = state.todos.map(item => (item.id === todo.id ? todo : item));
+    },
   },
   actions: {},
   getters: {},

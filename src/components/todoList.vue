@@ -5,7 +5,6 @@
         li.item(v-for="todo in todos")
           todo-list-item(
             :todo="todo"
-            @checkTodo="checkTodo"
           )
           
     .footer
@@ -31,9 +30,6 @@ export default {
     todoListItem
   },
   methods: {
-    checkTodo(todo) {
-      this.$emit("checkTodo", todo);
-    },
     filterTodos(filter) {
       this.$emit("filterTodos", filter);
     }

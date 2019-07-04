@@ -1,10 +1,10 @@
 <template lang="pug">
-  .todo-item()
+  .todo-item(:class="{checked: todo.checked}")
     label.label
       .input-block
         input(
           type='checkbox'
-          @change="checkTodo"
+          @change="checkTodoAsCompleted"
           :checked="todo.checked"
         ).input
       .title {{todo.name}}
@@ -27,16 +27,16 @@ export default {
     todo: Object
   },
   methods: {
-    ...mapMutations(["removeTodo"]),
+    ...mapMutations(["removeTodo", "checkTodo"]),
     removeExistedTodo() {
       this.removeTodo(this.todo.id);
     },
-    checkTodo(e) {
+    checkTodoAsCompleted(e) {
       const todoItem = {
         ...this.todo,
         checked: e.target.checked
       };
-      this.$emit("checkTodo", todoItem);
+      this.checkTodo(todoItem);
     }
   }
 };

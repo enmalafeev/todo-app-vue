@@ -6,7 +6,6 @@
     todo-list(
       v-if="todos.length > 0"
       :todos="filteredTodos"
-      @checkTodo="checkTodo"
       @filterTodos="filterTodos"
     )
 </template>
@@ -40,9 +39,6 @@ export default {
     }
   },
   methods: {
-    checkTodo(todo) {
-      this.todos = this.todos.map(item => (item.id === todo.id ? todo : item));
-    },
     filterTodos(filter) {
       this.filter = filter;
     },
