@@ -5,7 +5,6 @@
         li.item(v-for="todo in todos")
           todo-list-item(
             :todo="todo"
-            @removeTodo="removeTodo"
             @checkTodo="checkTodo"
           )
           
@@ -32,9 +31,6 @@ export default {
     todoListItem
   },
   methods: {
-    removeTodo(todoId) {
-      this.$emit("removeTodo", todoId);
-    },
     checkTodo(todo) {
       this.$emit("checkTodo", todo);
     },
