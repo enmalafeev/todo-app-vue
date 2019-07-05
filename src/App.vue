@@ -1,15 +1,18 @@
 <template lang='pug'>
   .container
+    todoHeader
     router-view
 </template>
 
 <script>
 import todo from "./components/todo";
+import todoHeader from "./components/todoHeader"
 
 export default {
   name: "app",
   components: {
-    todo
+    todo,
+    todoHeader
   },
   data() {
     return {};

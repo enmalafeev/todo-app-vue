@@ -12,6 +12,7 @@
 <script>
 import todoInput from "./todoInput";
 import todoList from "./todoList";
+
 import { mapState } from "vuex";
 
 export default {
@@ -46,14 +47,14 @@ export default {
   },
   components: {
     todoInput,
-    todoList
+    todoList,
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .todo {
-  margin-top: 100px;
+  margin-top: 50px;
   background: #fff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
