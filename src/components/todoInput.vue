@@ -78,13 +78,6 @@ export default {
   }
 }
 
-.error {
-  position: absolute;
-  top: 70px;
-  left: 125px;
-  color: firebrick;
-}
-
 .input {
   font-size: 24px;
   padding: 16px 16px 16px 60px;
@@ -95,6 +88,17 @@ export default {
   color: inherit;
   width: 100%;
   background: #fff;
+}
+
+.todo-input {
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  color: firebrick;
 }
 
 .valid-error {
