@@ -1,8 +1,6 @@
 <template lang="pug">
   div.todo
-    todo-input(
-      @selectAllTodos='selectAllTodos'
-    )
+    todo-input
     todo-list(
       v-if="todos.length > 0"
       :todos="filteredTodos"
@@ -38,16 +36,10 @@ export default {
       }
     }
   },
-  methods: {
-    selectAllTodos() {
-      if (this.todos.length > 0) {
-        this.todos = this.todos.map(el => ({ ...el, checked: true }));
-      }
-    }
-  },
+  methods: {},
   components: {
     todoInput,
-    todoList,
+    todoList
   }
 };
 </script>

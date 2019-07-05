@@ -2,7 +2,7 @@
   .todo-input
     div.error {{validation.firstError('todo.name')}}
     label.select-all(
-      @click="selectAllTodos"
+      @click="selectAllCompletedTodos"
       :class="{active: this.todo.checked}"
       )
       input(
@@ -37,7 +37,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["addTodo"]),
+    ...mapMutations(["addTodo", "selectAllTodos"]),
     addNewTodo() {
       this.$validate().then(success => {
         if (!success) return;
@@ -50,8 +50,8 @@ export default {
         this.validation.reset();
       });
     },
-    selectAllTodos() {
-      this.$emit("selectAllTodos", { ...this.todo });
+    selectAllCompletedTodos() {
+      this.selectAllTodos({ ...this.todo });
     }
   }
 };

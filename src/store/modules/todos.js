@@ -16,6 +16,11 @@ const todos = {
     filterTodos(state, filter) {
       state.filter = filter;
     },
+    selectAllTodos(state) {
+      if (state.todos.length > 0) {
+        state.todos = state.todos.map(el => ({ ...el, checked: true }));
+      }
+    }
   },
   actions: {},
   getters: {},
