@@ -6,19 +6,27 @@
       :class="{active: currentFilter === filter}"
       @click="filterCurrentTodos(filter)"
       ) {{ filter }}
-    button(
+    button.clearCompleted(
+      v-if="this.someTodoChecked"
       @click="clearAllCompleted"
     ) Clear completed
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
+
 export default {
   data() {
     return {
       filters: ["all", "active", "completed"],
       currentFilter: "all"
     };
+  },
+  mounted() {
+    setTimeout(() => this.someTodoChecked, 5000);
+  },
+  computed: {
+    ...mapGetters(["someTodoChecked"])
   },
   methods: {
     ...mapMutations(["filterTodos", "clearCompleted"]),
@@ -49,7 +57,7 @@ button {
     border-color: rgba(175, 47, 47, 0.2);
   }
   &:last-child {
-    margin-right: none;
+    margin-right: 0;
   }
 }
 </style>

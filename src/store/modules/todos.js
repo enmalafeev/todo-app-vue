@@ -25,8 +25,10 @@ const todos = {
       state.todos = [];
     }
   },
+  getters: {
+    someTodoChecked: state => state.todos.some(el => el.checked),
+  },
   actions: {},
-  getters: {},
 }
 
 export default todos;

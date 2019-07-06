@@ -64,7 +64,7 @@ export default {
 
 .footer-content {
   display: flex;
-  align-items: center;
+  align-items: right;
   position: relative;
 }
 .filter {
