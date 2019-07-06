@@ -1,7 +1,7 @@
 const todos = {
   state: {
     todos: [],
-    filter: "all"
+    filter: "all",
   },
   mutations: {
     addTodo(state, todo) {
@@ -20,6 +20,9 @@ const todos = {
       if (state.todos.length > 0) {
         state.todos = state.todos.map(el => ({ ...el, checked: true }));
       }
+    },
+    clearCompleted(state) {
+      state.todos = [];
     }
   },
   actions: {},

@@ -6,6 +6,9 @@
       :class="{active: currentFilter === filter}"
       @click="filterCurrentTodos(filter)"
       ) {{ filter }}
+    button(
+      @click="clearAllCompleted"
+    ) Clear completed
 </template>
 
 <script>
@@ -18,10 +21,13 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["filterTodos"]),
+    ...mapMutations(["filterTodos", "clearCompleted"]),
     filterCurrentTodos(filter) {
       this.currentFilter = filter;
       this.filterTodos(filter);
+    },
+    clearAllCompleted() {
+      this.clearCompleted();
     }
   }
 };

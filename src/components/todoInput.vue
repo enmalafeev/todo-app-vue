@@ -3,16 +3,17 @@
     div.error {{validation.firstError('todo.name')}}
     label.select-all(
       @click="selectAllCompletedTodos"
-      :class="{active: this.todo.checked}"
+      :class="{active: isActive}"
+      v-on="$listeners"
       )
-      input(
-        type='text'
-        placeholder='Todo Name'
-        autofocus
-        v-model="todo.name"
-        @keydown.enter='addNewTodo'
-        :class="{'valid-error': validation.hasError('todo.name')}"
-      ).input
+    input(
+      type='text'
+      placeholder='Todo Name'
+      autofocus
+      v-model="todo.name"
+      @keydown.enter='addNewTodo'
+      :class="{'valid-error': validation.hasError('todo.name')}"
+    ).input
 </template>
 
 <script>
@@ -33,7 +34,8 @@ export default {
         id: 0,
         name: "",
         checked: false
-      }
+      },
+      isActive: false
     };
   },
   methods: {
@@ -52,6 +54,7 @@ export default {
     },
     selectAllCompletedTodos() {
       this.selectAllTodos({ ...this.todo });
+      this.isActive = true;
     }
   }
 };
