@@ -22,9 +22,6 @@ export default {
       currentFilter: "all"
     };
   },
-  mounted() {
-    setTimeout(() => this.someTodoChecked, 5000);
-  },
   computed: {
     ...mapGetters(["someTodoChecked"])
   },

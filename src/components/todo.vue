@@ -15,10 +15,7 @@ import { mapState } from "vuex";
 
 export default {
   data() {
-    return {
-      // todos: [],
-      // filter: "all"
-    };
+    return {};
   },
   computed: {
     ...mapState({

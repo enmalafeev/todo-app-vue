@@ -9,7 +9,7 @@
           
     .footer
       .footer-content
-        .counter {{todos.length}} items left
+        .counter {{remainigTodos}} items left
         .filter
           todo-list-filter
 
@@ -18,6 +18,7 @@
 <script>
 import todoListFilter from "./todoListFilter";
 import todoListItem from "./todoListItem";
+import { mapState } from "vuex";
 
 export default {
   props: {
@@ -26,6 +27,14 @@ export default {
   components: {
     todoListFilter,
     todoListItem
+  },
+  computed: {
+    ...mapState({
+      todos: state => state.todos.todos
+    }),
+    remainigTodos() {
+      return this.todos.filter(todo => !todo.checked).length;
+    }
   },
   methods: {}
 };
