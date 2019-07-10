@@ -67,6 +67,9 @@ export default {
       todo.editing = false;
     },
     doneEdit(todo) {
+      if (todo.name.trim().length === 0) {
+        todo.name = this.beforeEditCashe;
+      }
       todo.editing = false;
     }
   }
