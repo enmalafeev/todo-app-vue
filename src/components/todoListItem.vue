@@ -16,6 +16,7 @@
           v-else="todo.editing"
           @blur="doneEdit(todo)"
           @keydown.enter="doneEdit(todo)"
+          @keydown.esc="cancelEdit(todo)"
           v-focus
           type="text"
           v-model="todo.name"
@@ -58,7 +59,12 @@ export default {
       this.checkTodo(todoItem);
     },
     editTodo(todo) {
+      this.beforeEditCashe = todo.name;
       todo.editing = true;
+    },
+    cancelEdit(todo) {
+      todo.name = this.beforeEditCashe;
+      todo.editing = false;
     },
     doneEdit(todo) {
       todo.editing = false;

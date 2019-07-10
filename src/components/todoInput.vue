@@ -33,6 +33,7 @@ export default {
       todo: {
         id: 0,
         name: "",
+        beforeEditCashe: "",
         checked: false,
         editing: false
       },
