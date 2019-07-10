@@ -7,7 +7,19 @@
           @change="checkTodoAsCompleted"
           :checked="todo.checked"
         ).input
-      .title {{todo.name}}
+      .input-type-left
+        .title(
+          v-if="!todo.editing"
+          @dblclick="editTodo(todo)"
+        ) {{todo.name}}
+        input(
+          v-else="todo.editing"
+          @blur="doneEdit(todo)"
+          @keydown.enter="doneEdit(todo)"
+          v-focus
+          type="text"
+          v-model="todo.name"
+          ).input-edit
     .button
       router-link(
         tag='button'
@@ -26,6 +38,13 @@ export default {
   props: {
     todo: Object
   },
+  directives: {
+    focus: {
+      inserted: function(el) {
+        el.focus();
+      }
+    }
+  },
   methods: {
     ...mapMutations(["removeTodo", "checkTodo"]),
     removeExistedTodo() {
@@ -37,6 +56,12 @@ export default {
         checked: e.target.checked
       };
       this.checkTodo(todoItem);
+    },
+    editTodo(todo) {
+      todo.editing = true;
+    },
+    doneEdit(todo) {
+      todo.editing = false;
     }
   }
 };
@@ -78,10 +103,26 @@ export default {
   justify-content: center;
 }
 
+.input-type-left {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .title {
   padding: 15px 0;
   display: block;
+  border: 1px solid #fff;
   line-height: 1.2;
+}
+
+.input-edit {
+  width: 100%;
+  font-size: 24px;
+  color: #2c3e50;
+  line-height: 1.2;
+  padding: 15px 0;
+  border: 1px solid #ccc;
 }
 
 .button {

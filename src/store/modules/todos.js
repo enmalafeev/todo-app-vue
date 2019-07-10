@@ -16,13 +16,17 @@ const todos = {
     filterTodos(state, filter) {
       state.filter = filter;
     },
+    editTodo(todo) {
+      alert("dblicking!")
+      todo.editing = true;
+    },
     selectAllTodos(state) {
       if (state.todos.length > 0) {
         state.todos = state.todos.map(el => ({ ...el, checked: true }));
       }
     },
     clearCompleted(state) {
-      state.todos = [];
+      state.todos = state.todos.filter(todo => !todo.checked);
     }
   },
   getters: {

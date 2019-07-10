@@ -33,7 +33,8 @@ export default {
       todo: {
         id: 0,
         name: "",
-        checked: false
+        checked: false,
+        editing: false
       },
       isActive: false
     };
@@ -53,7 +54,7 @@ export default {
       });
     },
     selectAllCompletedTodos() {
-      this.selectAllTodos({ ...this.todo });
+      this.selectAllTodos();
       this.isActive = true;
     }
   }

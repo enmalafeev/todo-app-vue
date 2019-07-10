@@ -29,9 +29,6 @@ export default {
     todoListItem
   },
   computed: {
-    ...mapState({
-      todos: state => state.todos.todos
-    }),
     remainigTodos() {
       return this.todos.filter(todo => !todo.checked).length;
     }
