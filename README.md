@@ -1,5 +1,7 @@
 # todo-app-vue
 
+[Link to app](http://todoapp-vue.surge.sh/)
+
 ## Project setup
 ```
 yarn install
